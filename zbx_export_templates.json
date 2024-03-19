@@ -1,0 +1,110 @@
+{
+    "zabbix_export": {
+        "version": "6.0",
+        "date": "2024-03-19T21:09:57Z",
+        "groups": [
+            {
+                "uuid": "7df96b18c230490a9a0a9e2307226338",
+                "name": "Templates"
+            }
+        ],
+        "templates": [
+            {
+                "uuid": "0382b029c8c647a7b0d03f2cd947c12e",
+                "template": "Template Graylog Monitoring API",
+                "name": "Template Graylog Monitoring API",
+                "groups": [
+                    {
+                        "name": "Templates"
+                    }
+                ],
+                "items": [
+                    {
+                        "uuid": "19d80136bf554ecaaba181bb2cfdd264",
+                        "name": "ElasticSearch Service Status",
+                        "type": "HTTP_AGENT",
+                        "key": "elasticsearch.service.status",
+                        "trends": "0",
+                        "value_type": "CHAR",
+                        "preprocessing": [
+                            {
+                                "type": "JSONPATH",
+                                "parameters": [
+                                    "$.elasticsearch"
+                                ]
+                            }
+                        ],
+                        "url": "http://{IPADDRESS}:8081/graylogstatusapi.php"
+                    },
+                    {
+                        "uuid": "ab87a5d96626487eb1bb4fc2277db33d",
+                        "name": "Graylog Disk Usage",
+                        "type": "HTTP_AGENT",
+                        "key": "graylog.disk.usage",
+                        "trends": "0",
+                        "value_type": "CHAR",
+                        "preprocessing": [
+                            {
+                                "type": "JSONPATH",
+                                "parameters": [
+                                    "$.diskusage"
+                                ]
+                            }
+                        ],
+                        "url": "http://{IPADDRESS}:8081/graylogstatusapi.php"
+                    },
+                    {
+                        "uuid": "759e2a5768044fa3b636ee2d5c7e9574",
+                        "name": "Graylog Disk Usage Percent",
+                        "type": "HTTP_AGENT",
+                        "key": "graylog.disk.usage.percent",
+                        "value_type": "FLOAT",
+                        "preprocessing": [
+                            {
+                                "type": "JSONPATH",
+                                "parameters": [
+                                    "$.diskusagepercent"
+                                ]
+                            }
+                        ],
+                        "url": "http://{IPADDRESS}:8081/graylogstatusapi.php"
+                    },
+                    {
+                        "uuid": "7c8c39c07160406780c39610416d65e8",
+                        "name": "Graylog Service Status",
+                        "type": "HTTP_AGENT",
+                        "key": "graylog.service.status",
+                        "trends": "0",
+                        "value_type": "CHAR",
+                        "preprocessing": [
+                            {
+                                "type": "JSONPATH",
+                                "parameters": [
+                                    "$.graylog"
+                                ]
+                            }
+                        ],
+                        "url": "http://{IPADDRESS}:8081/graylogstatusapi.php"
+                    },
+                    {
+                        "uuid": "6188e19acd394dba99d1419e6be97ebd",
+                        "name": "Mongo DB Service Status",
+                        "type": "HTTP_AGENT",
+                        "key": "mongodb.service.status",
+                        "trends": "0",
+                        "value_type": "CHAR",
+                        "preprocessing": [
+                            {
+                                "type": "JSONPATH",
+                                "parameters": [
+                                    "$.mongodb"
+                                ]
+                            }
+                        ],
+                        "url": "http://{IPADDRESS}:8081/graylogstatusapi.php"
+                    }
+                ]
+            }
+        ]
+    }
+}
