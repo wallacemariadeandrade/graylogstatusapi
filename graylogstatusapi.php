@@ -26,7 +26,7 @@ function getDiskUsagePercent() : float {
 }
 
 function getDiskUsage() : string {
-    return shell_exec("df -h | grep sda  | awk {'print $3'}");
+    return trim(shell_exec("df -h | grep sda  | awk {'print $3'}"));
 }
 
 $status = [
