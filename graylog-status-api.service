@@ -1,0 +1,13 @@
+[Unit]
+Description=Graylog services monitoring with vanilla PHP - https://github.com/wallacemariadeandrade/graylogstatusapi.git
+
+[Service]
+WorkingDirectory=/var/www/html/graylogstatusapi
+ExecStart=/usr/bin/php -S 0.0.0.0:8081
+Restart=always
+RestartSec=10
+SyslogIdentifier=graylogstatusapi
+User=root
+
+[Install]
+WantedBy=multi-user.target
