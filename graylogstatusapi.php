@@ -34,7 +34,7 @@ $status = [
     "mongodb" => getMongoDbServiceStatus(),
     "elasticsearch" => getElasticsearchServiceStatus(),
     "diskusage" => getDiskUsage(),
-    "diskusagepercent" => getDiskUsage()
+    "diskusagepercent" => getDiskUsagePercent()
 ];
 
 echo json_encode($status);
