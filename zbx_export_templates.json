@@ -1,7 +1,7 @@
 {
     "zabbix_export": {
         "version": "6.0",
-        "date": "2024-03-19T21:09:57Z",
+        "date": "2024-03-20T12:58:34Z",
         "groups": [
             {
                 "uuid": "7df96b18c230490a9a0a9e2307226338",
@@ -34,7 +34,25 @@
                                 ]
                             }
                         ],
-                        "url": "http://{IPADDRESS}:8081/graylogstatusapi.php"
+                        "url": "http://{IPADDRESS}:8081/graylogstatusapi.php",
+                        "triggers": [
+                            {
+                                "uuid": "85e9d83cfa864a78ac3e341993d6e2f7",
+                                "expression": "last(/Template Graylog Monitoring API/elasticsearch.service.status)=\"DOWN\"",
+                                "recovery_mode": "RECOVERY_EXPRESSION",
+                                "recovery_expression": "last(/Template Graylog Monitoring API/elasticsearch.service.status)=\"UP\"",
+                                "name": "ElasticSearch Service - Operational Status",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "4bd417bae65747f2aa98a609de4779e8",
+                                "expression": "last(/Template Graylog Monitoring API/elasticsearch.service.status)=\"DOWN\"",
+                                "recovery_mode": "RECOVERY_EXPRESSION",
+                                "recovery_expression": "last(/Template Graylog Monitoring API/elasticsearch.service.status)=\"UP\"",
+                                "name": "Graylog Service - Operational Status",
+                                "priority": "HIGH"
+                            }
+                        ]
                     },
                     {
                         "uuid": "ab87a5d96626487eb1bb4fc2277db33d",
@@ -67,7 +85,17 @@
                                 ]
                             }
                         ],
-                        "url": "http://{IPADDRESS}:8081/graylogstatusapi.php"
+                        "url": "http://{IPADDRESS}:8081/graylogstatusapi.php",
+                        "triggers": [
+                            {
+                                "uuid": "c8750e525b804b62914dcd6bc2ba65b0",
+                                "expression": "last(/Template Graylog Monitoring API/graylog.disk.usage.percent)>90",
+                                "recovery_mode": "RECOVERY_EXPRESSION",
+                                "recovery_expression": "last(/Template Graylog Monitoring API/graylog.disk.usage.percent)<90",
+                                "name": "Graylog Running Out of Disk Space",
+                                "priority": "HIGH"
+                            }
+                        ]
                     },
                     {
                         "uuid": "7c8c39c07160406780c39610416d65e8",
@@ -101,7 +129,17 @@
                                 ]
                             }
                         ],
-                        "url": "http://{IPADDRESS}:8081/graylogstatusapi.php"
+                        "url": "http://{IPADDRESS}:8081/graylogstatusapi.php",
+                        "triggers": [
+                            {
+                                "uuid": "d77a84bdfe434ab499c04217ac819d15",
+                                "expression": "last(/Template Graylog Monitoring API/mongodb.service.status)=\"DOWN\"",
+                                "recovery_mode": "RECOVERY_EXPRESSION",
+                                "recovery_expression": "last(/Template Graylog Monitoring API/mongodb.service.status)=\"UP\"",
+                                "name": "MongoDB Service - Operational Status",
+                                "priority": "HIGH"
+                            }
+                        ]
                     }
                 ]
             }
