@@ -1,0 +1,50 @@
+{
+    "zabbix_export": {
+        "version": "6.0",
+        "date": "2024-03-20T13:17:18Z",
+        "groups": [
+            {
+                "uuid": "2d6448c57f994a8984fa6fbe76853e70",
+                "name": "Graylog Servers"
+            },
+            {
+                "uuid": "dc579cd7a1a34222933f24f52a68bcd8",
+                "name": "Linux servers"
+            }
+        ],
+        "hosts": [
+            {
+                "host": "Graylog Server CGNAT Logs",
+                "name": "Graylog Server CGNAT Logs",
+                "templates": [
+                    {
+                        "name": "Template Graylog Monitoring API"
+                    },
+                    {
+                        "name": "Template Module ICMP Ping"
+                    }
+                ],
+                "groups": [
+                    {
+                        "name": "Graylog Servers"
+                    },
+                    {
+                        "name": "Linux servers"
+                    }
+                ],
+                "interfaces": [
+                    {
+                        "type": "SNMP",
+                        "ip": "10.38.200.5",
+                        "port": "161",
+                        "details": {
+                            "community": "{$SNMP_COMMUNITY}"
+                        },
+                        "interface_ref": "if1"
+                    }
+                ],
+                "inventory_mode": "DISABLED"
+            }
+        ]
+    }
+}
