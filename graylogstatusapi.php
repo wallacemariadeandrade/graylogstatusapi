@@ -22,7 +22,7 @@ function getElasticsearchServiceStatus() : string {
 }
 
 function getDiskUsagePercent() : float {
-    return doubleval(shell_exec("df -h | grep sda  | awk {'print $5'}"))/100;
+    return doubleval(shell_exec("df -h | grep sda  | awk {'print $5'}"));
 }
 
 function getDiskUsage() : string {
